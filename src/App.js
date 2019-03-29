@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './css/App.css';
-import Todo from './Todo';
+import Todo from './Todo.js';
+import Counter from './Counter.js';
 
 class App extends Component {
 
@@ -32,10 +33,24 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <p>買い物リスト</p>
+          <Counter onSubmit={this.onSmit.bind(this)} />
           {todos}
         </header>
       </div>
     );
+  }
+
+  onSmit(e) {
+    e.preventDefault();
+
+    const todos = this.state.todos.slice();
+
+    todos.push({
+      name: "しいたけ",
+      value: 3
+    });
+    
+    this.setState({ todos: todos })
   }
 }
 
