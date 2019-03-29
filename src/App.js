@@ -46,10 +46,10 @@ class App extends Component {
     const todos = this.state.todos.slice();
 
     todos.push({
-      name: "しいたけ",
-      value: 3
+      name: e.target.title.value,
+      value: e.target.desc.value
     });
-    
+
     this.setState({ todos: todos })
   }
 }
